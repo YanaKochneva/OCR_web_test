@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-canvas text-ink-900 font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-accent-100 text-ink-900;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-soft;
+  }
+
+  .card-pad {
+    @apply p-5 sm:p-6;
+  }
+
+  .label {
+    @apply text-[11px] font-semibold uppercase tracking-wider text-ink-400;
+  }
+
+  .muted {
+    @apply text-sm leading-relaxed text-ink-500;
+  }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
+  }
+
+  /* Segmented control for tabs */
+  .segmented {
+    @apply inline-flex flex-wrap items-center gap-1 rounded-xl border border-line bg-canvas p-1;
+  }
+
+  .segmented-item {
+    @apply focus-ring rounded-lg px-3 py-1.5 text-sm font-medium text-ink-500 transition hover:text-ink-700;
+  }
+
+  .segmented-item-active {
+    @apply bg-surface text-ink-900 shadow-soft;
+  }
+
+  .diff-equal {
+    @apply text-ink-500;
+  }
+  .diff-insert {
+    @apply rounded bg-good-50 text-good-700 ring-1 ring-good-200;
+  }
+  .diff-delete {
+    @apply rounded bg-bad-50 text-bad-700 line-through decoration-bad-500/60;
+  }
+  .diff-replace {
+    @apply rounded bg-warn-50 text-warn-700 ring-1 ring-warn-200;
+  }
+}
+
+/* Slim, unobtrusive scrollbars for the diff and JSON panes */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d7dbe3 transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #d7dbe3;
+  border-radius: 999px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -1,0 +1,34 @@
+# --- secrets ---------------------------------------------------------------
+.env
+.env.local
+
+# --- python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# --- node / vite -----------------------------------------------------------
+node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+
+# --- runtime artefacts -----------------------------------------------------
+# Uploaded documents, rendered pages, crops and results are user data.
+data/
+!data/.gitkeep
+
+# --- editors / os ----------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- scratch logs of local setup -------------------------------------------
+_*.log
+_*.txt
